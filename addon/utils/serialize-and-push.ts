@@ -10,7 +10,7 @@ function isJsonApi(raw: any): raw is JSONApiDoc {
   return raw.jsonapi && raw.jsonapi.version;
 }
 function isDocWithData(doc: any): doc is DocWithData {
-  return isJsonApi(doc) && ['object', 'array'].indexOf(typeOf((doc as DocWithData).data)) >= 0;
+  return ['object', 'array'].indexOf(typeOf((doc as DocWithData).data)) >= 0;
 }
 
 export default function serializeAndPush(this: Model, response: any) {
